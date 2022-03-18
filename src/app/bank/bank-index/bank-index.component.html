@@ -1,1 +1,49 @@
-<p>bank-index works!</p>
+<div class="container custom-container-2">
+  <!-- Show it when there is no employee -->
+  <div class="no-data text-center" *ngIf="banks.length == 0">
+    <p>There is no employee added yet!</p>
+    <button class="btn btn-outline-primary" routerLink="/bank/create">
+      Add Bank
+    </button>
+  </div>
+  <!-- Bank list table, it hides when there is no employee -->
+  <div *ngIf="banks.length !== 0">
+    <h3 class="mb-3 text-center">Bank List</h3>
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Acronym</th>
+          <th scope="col">Location</th>
+          <th scope="col">Address</th>
+          <th scope="col">Contact</th>
+          <th scope="col">Email</th>
+          <th scope="col">Website</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let bank of banks">
+          <td>{{ bank.id }}</td>
+          <td>{{ bank.name }}</td>
+          <td>{{ bank.acronym }}</td>
+          <td>{{ bank.location }}</td>
+          <td>{{ bank.address }}</td>
+          <td>{{ bank.contact }}</td>
+          <td>{{ bank.email }}</td>
+          <td>{{ bank.website }}</td>
+          <td>
+            <a routerLink="/bank/edit/{{ bank.id }}" class="btn-outline-primary"><span class="edit"
+              >Edit</span></a>
+            <span class="delete" (click)="deleteBank(bank.id)"
+            >Delete</span
+            >
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

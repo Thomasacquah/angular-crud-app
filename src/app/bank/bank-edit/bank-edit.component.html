@@ -1,1 +1,124 @@
-<p>bank-edit works!</p>
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <h1>Update Bank</h1>
+    </div>
+    <div class="col">
+      <a href="#" routerLink="/bank/index" class="btn btn-primary" style="justify-content: right">Back</a>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col-12 col-lg-3 col-md-4 col-sm-6">
+        <div class="form-group ">
+          <label for="name">Name:</label>
+          <input
+            formControlName="name"
+            id="name"
+            type="text"
+            class="form-control col px-0"
+            [(ngModel)]="bank.name">
+          <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+            <div *ngIf="f['name'].errors && f['name'].errors['required']">Title is required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3 col-md-4 col-sm-6">
+        <div class="form-group ">
+          <label for="acronym">Acronym:</label>
+          <input
+            formControlName="acronym"
+            id="acronym"
+            type="text"
+            class="form-control col px-0"
+            [(ngModel)]="bank.acronym"
+          >
+          <div *ngIf="f['acronym'].touched && f['acronym'].invalid" class="alert alert-danger">
+            <div *ngIf="f['acronym'].errors && f['acronym'].errors['required']">Title is required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3 col-md-4 col-sm-6">
+        <div class="form-group ">
+          <label for="location">Location:</label>
+          <input
+            formControlName="location"
+            id="location"
+            type="text"
+            class="form-control col px-0"
+            [(ngModel)]="bank.location"
+          >
+          <div *ngIf="f['location'].touched && f['location'].invalid" class="alert alert-danger">
+            <div *ngIf="f['location'].errors && f['location'].errors['required']">Title is required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3 col-md-4 col-sm-6">
+        <div class="form-group ">
+          <label for="address">Address:</label>
+          <input
+            formControlName="address"
+            id="address"
+            type="text"
+            class="form-control col px-0"
+            [(ngModel)]="bank.address"
+          >
+          <div *ngIf="f['address'].touched && f['address'].invalid" class="alert alert-danger">
+            <div *ngIf="f['address'].errors && f['address'].errors['required']">Title is required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3 col-md-4 col-sm-6">
+        <div class="form-group ">
+          <label for="contact">Contact:</label>
+          <input
+            formControlName="contact"
+            id="contact"
+            type="text"
+            class="form-control col px-0"
+            [(ngModel)]="bank.contact"
+          >
+          <div *ngIf="f['contact'].touched && f['contact'].invalid" class="alert alert-danger">
+            <div *ngIf="f['contact'].errors && f['contact'].errors['required']">Title is required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3 col-md-4 col-sm-6">
+        <div class="form-group ">
+          <label for="email">Email:</label>
+          <input
+            formControlName="email"
+            id="email"
+            type="text"
+            class="form-control col px-0"
+            [(ngModel)]="bank.email"
+          >
+          <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+            <div *ngIf="f['email'].errors && f['email'].errors['required']">Title is required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3 col-md-4 col-sm-6">
+        <div class="form-group ">
+          <label for="website">Website:</label>
+          <input
+            formControlName="website"
+            id="website"
+            type="text"
+            class="form-control col px-0"
+            [(ngModel)]="bank.website"
+          >
+          <div *ngIf="f['website'].touched && f['website'].invalid" class="alert alert-danger">
+            <div *ngIf="f['website'].errors && f['website'].errors['required']">Title is required.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br>
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+
+</div>

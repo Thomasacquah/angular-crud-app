@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { BankIndexComponent } from './bank/bank-index/bank-index.component';
 import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {BankModule} from "./bank/bank.module";
 import {RouterModule} from "@angular/router";
+import {BankService} from "./bank/bank.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
-    BankIndexComponent,
     HomeComponent
   ],
   imports: [
@@ -19,8 +19,11 @@ import {RouterModule} from "@angular/router";
     RouterModule,
     AppRoutingModule,
     BankModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    BankService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

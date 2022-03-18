@@ -24,7 +24,7 @@ export const routes: Routes = [
     component: BankCreateComponent,
   },
   {
-    path: 'bank/edit',
+    path: 'bank/edit/:id',
     component: BankEditComponent,
   },
   {
@@ -32,14 +32,14 @@ export const routes: Routes = [
     component: BankShowComponent,
   },
   {
-    path: 'login',
+    path: 'login/auth',
     component: LoginComponent,
   },
   {
     path: 'register',
     component: RegisterComponent,
   },
-  { path: '**', redirectTo: 'home' },
+  // { path: '**', redirectTo: 'home' },
 ];
 
 const config: ExtraOptions = {
