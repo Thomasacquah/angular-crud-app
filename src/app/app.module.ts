@@ -8,11 +8,13 @@ import {BankModule} from "./bank/bank.module";
 import {RouterModule} from "@angular/router";
 import {BankService} from "./bank/bank.service";
 import {HttpClientModule} from "@angular/common/http";
+import {AppService} from "./app.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,9 +22,13 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     BankModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [
     BankService,
+    AppService,
   ],
   bootstrap: [AppComponent]
 })

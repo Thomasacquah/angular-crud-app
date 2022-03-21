@@ -32,7 +32,7 @@ export const routes: Routes = [
     component: BankShowComponent,
   },
   {
-    path: 'login/auth',
+    path: 'login',
     component: LoginComponent,
   },
   {
