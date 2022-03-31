@@ -1,14 +1,71 @@
-<!--<div class="alert alert-danger">-->
+<!--<div class="alert alert-danger" [hidden]="!error">-->
 <!--  There was a problem logging in. Please try again.-->
 <!--</div>-->
-<form role="form">
-  <div class="form-group">
-    <label for="username">Username:</label> <input type="text"
-                                                   class="form-control" id="username" name="username"/>
+<!--<form role="form" [formGroup]="loginForm" (submit)="login()">-->
+<!--  <div class="form-group">-->
+<!--    <label for="username">Username:</label> <input type="text"-->
+<!--                                                   class="form-control" id="username" name="username"/>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="password">Password:</label> <input type="password"-->
+<!--                                                   class="form-control" id="password" name="password"/>-->
+<!--  </div>-->
+<!--  <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--</form>-->
+
+
+
+<div class="card row col-12 col-lg-6 col-md-8 mt-5 mx-auto" style="border: 0.2px solid white; box-shadow: 0 0.5rem 1.5rem 0; background-color: white; border-radius: 10px;">
+  <h4>Login</h4><br>
+  <div class="content">
+    <div class="row input-group mx-1" >
+      <form class="row input-group" name="loginForm"  [formGroup] = "loginForm" (submit)="onSubmit()">
+        <div class="form-group">
+          <label class="my-0" style="font-size: larger" for="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            autocomplete="true"
+            formControlName="username"
+            placeholder="Enter your Username"
+            class="form-control"
+            required
+            style="background-color: #D3D3D3;"
+          />
+          <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)" class="alert alert-danger">
+            <div *ngIf="loginForm.controls['username'].errors?.['required']" class="warn-text">
+              Username is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="my-2" style="font-size: larger">Password</label>
+          <input
+            id="password"
+            type="password"
+            autocomplete="true"
+            formControlName="password"
+            placeholder="Enter your Password"
+            class="form-control"
+            required
+            email
+            style="background-color: #D3D3D3;"
+          />
+          <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="alert alert-danger">
+            <div *ngIf="loginForm.controls['password'].errors?.['required']" class="warn-text">
+              password is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button class="btn btn-outline-primary my-3" type="submit">
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="password">Password:</label> <input type="password"
-                                                   class="form-control" id="password" name="password" />
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
+

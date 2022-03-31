@@ -1,3 +1,27 @@
+<nav class="navbar navbar-dark bg-dark mb-5" style="">
+  <a class="navbar-brand" href="/" style="text-align: center">Bank App</a>
+  <div class="navbar-expand" style="margin-left: auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" routerLink="/home">Home</a>
+      <button  class="nav-item nav-link"  (click)="logout()">Logout</button>
+
+    </div>
+  </div>
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="" target="_blank">
+        <i class="fa fa-github"></i>
+      </a>
+      <a class="nav-item nav-link" href="" target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a class="nav-item nav-link" href="" target="_blank">
+        <i class="fa fa-wordpress"></i>
+      </a>
+    </div>
+  </div>
+</nav>
+
 <div class="container custom-container-2">
   <!-- Show it when there is no employee -->
   <div class="no-data text-center" *ngIf="banks.length == 0">
@@ -35,11 +59,12 @@
           <td>{{ bank.email }}</td>
           <td>{{ bank.website }}</td>
           <td>
-            <a routerLink="/bank/edit/{{ bank.id }}" class="btn-outline-primary"><span class="edit"
-              >Edit</span></a>
-            <span class="delete" (click)="deleteBank(bank.id)"
-            >Delete</span
-            >
+            <button routerLink="/bank/edit/{{ bank.id }}" class="btn btn-sm btn-primary">
+              <span class="edit">Edit</span>
+            </button>
+            <button routerLink="/bank/edit/{{ bank.id }}" class="btn btn-sm btn-primary">
+            <span class="delete" (click)="deleteBank(bank.id)">Delete</span>
+            </button>
           </td>
         </tr>
         </tbody>

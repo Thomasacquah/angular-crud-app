@@ -16,6 +16,7 @@ export class BankService {
       'Content-Type': 'application/json',
     }),
   };
+
   // HttpClient API get() method => Fetch banks list
   getBanks(): Observable<Bank> {
     return this.http
@@ -25,7 +26,7 @@ export class BankService {
   // HttpClient API get() method => Fetch bank
   getBank(id: any): Observable<Bank> {
     return this.http
-      .get<Bank>(this.apiURL + '/bank/show.' + id)
+      .get<Bank>(this.apiURL + '/bank/show.' + id, this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
   }
   // HttpClient API post() method => Create bank
@@ -40,7 +41,7 @@ export class BankService {
       .pipe(retry(1), catchError(this.handleError));
   }
   find(id:string): Observable<any> {
-    return this.http.get(this.apiURL + '/bank/edit/' + id + '.json')
+    return this.http.get(this.apiURL + '/bank/edit/' + id + '.json', this.httpOptions)
       .pipe(
         catchError(this.handleError)
       )

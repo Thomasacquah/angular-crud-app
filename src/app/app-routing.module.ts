@@ -7,6 +7,9 @@ import {BankShowComponent} from "./bank/bank-show/bank-show.component";
 import {HomeComponent} from "./home/home.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {RegisterComponent} from "./auth/register/register.component";
+import {
+  AuthGuardService as AuthGuard
+} from './auth/auth-guard.service';
 
 
 export const routes: Routes = [
@@ -18,18 +21,22 @@ export const routes: Routes = [
   {
     path: 'bank/index',
     component: BankIndexComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'bank/create',
     component: BankCreateComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'bank/edit/:id',
     component: BankEditComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'bank/show',
     component: BankShowComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
